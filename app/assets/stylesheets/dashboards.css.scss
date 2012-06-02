@@ -7,7 +7,7 @@ header {
   h1{
     font-size: 80px;
     font-family: 'Lobster', serif;
-    color:#333;
+    color:#366;
     text-shadow: -5px 5px 5px rgba(0,0,0, 0.3);
   }
 
@@ -17,7 +17,7 @@ header {
 	display: box;
     line-height:40px;
     list-style:none;
-    background:-webkit-gradient(linear, 58% 100%, 56% 43%, from(#E37018), to(#EB7845));
+    background:#434343;
   }
   li {
    a {
@@ -35,7 +35,7 @@ header {
     }
     a:hover {
       border-radius:5px;
-      background-color:#d17f33;
+      background-color:#909090;
     }
  
   }
@@ -60,7 +60,7 @@ header {
 
 #leftBox {
   margin-right:10px;
-  background: #eff9fb;
+  background: #fcfcfc;
   -webkit-box-ordinal-group: 1;
   -moz-box-ordinal-group: 1;
   box-ordinal-group: 1;
