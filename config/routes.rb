@@ -3,6 +3,8 @@ Atlus::Application.routes.draw do
 
   resources :snipets
 
+  root :controller => "dashboards", :action => "index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

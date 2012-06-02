@@ -1,12 +1,19 @@
-<nav>
-  <ul>
-  <% @dashboards.each do |dashboard| %>
-    <li>
-      <span><%= link_to dashboard.name, dashboard %></span>
-      <span><%= link_to 'Edit', edit_dashboard_path(dashboard) %></span>
-      <span><%= link_to 'Destroy', dashboard, confirm: 'Are you sure?', method: :delete %></span>
-    </li>
-  <% end %>
-  </ul>
-<nav>
-<%= link_to 'New Dashboard', new_dashboard_path %>
+<div id="box">
+  <nav id="leftBox">
+    <ul>
+    <% @dashboards.each do |dashboard| %>
+      <li>
+        <%= link_to dashboard.name, dashboard %>
+      </li>
+    <% end %>
+    </ul>
+  </nav>
+  <div id="main">
+    <ul>
+      <li><%= link_to 'New Dashboard', new_dashboard_path %></li>
+      <li><%= link_to 'New Snipet', new_snipet_path %></li>
+    </ul>
+  </div>
+</div>
+
+
