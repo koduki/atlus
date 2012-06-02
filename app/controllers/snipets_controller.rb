@@ -22,6 +22,9 @@ class SnipetsController < ApplicationController
         @table_records = ""
         flash[:notice] = "Format Error."
       end 
+    rescue TypeError
+      @data = []
+      flash[:notice] = "Type Error."
     rescue NameError
       @data = []
       flash[:notice] = "Name Error."
