@@ -20,8 +20,8 @@
     <%= f.text_area :query %>
   </div>
   <div class="field">
-    <%= f.label :chartType %><br />
-    <%= f.text_field :chartType %>
+    <label for="snipet_charTtype">Chart Type</label><br />
+    <%= f.select :chartType, [["Horizon Bar Chart", "horizonBar"], ["PI Chart", "pi"], ["Line Chart", "line"]] %>
   </div>
   <div class="field">
     <%= f.label :isTableVisible %><br />

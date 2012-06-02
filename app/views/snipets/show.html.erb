@@ -3,8 +3,6 @@
   <%= render 'form' %>
 </p>
 
-<%= link_to 'Edit', edit_snipet_path(@snipet) %> |
-<%= link_to 'Back', snipets_path %>
 <h1>Result:</h1>
 <p>
 <%= p @data %>
@@ -19,7 +17,7 @@
     }
   </style>
  
-  <h1><%= @snipet.name %>:</h1>
+  <h1><%= @snipet.name %></h1>
   <table class="<%= (@snipet.isTableVisible== false) ? "hidden" : "" %>">
      <%=raw @table_recods %>
   </table>
