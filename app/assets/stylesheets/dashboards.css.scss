@@ -1,3 +1,116 @@
 // Place all the styles related to the dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+header {
+  margin-bottom:-10px;
+
+  h1{
+    font-size: 80px;
+    font-family: 'Lobster', serif;
+    color:#333;
+    text-shadow: -5px 5px 5px rgba(0,0,0, 0.3);
+  }
+
+  ul {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+    line-height:40px;
+    list-style:none;
+    background:-webkit-gradient(linear, 58% 100%, 56% 43%, from(#E37018), to(#EB7845));
+  }
+  li {
+   a {
+      padding-left:10px;
+      width:70px;
+      height: 40px;
+      display:inline-block;
+      color: white;
+      font-size:16px;
+      font-weight: bold;
+      text-decoration:none;
+    }
+    a:visited {
+      color: white;
+    }
+    a:hover {
+      border-radius:5px;
+      background-color:#d17f33;
+    }
+ 
+  }
+}
+
+.hidden {
+    display:none;
+}
+#box	{
+  margin:0px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+}
+#main	{
+  padding:10px;
+  background: white;
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  box-ordinal-group: 2;
+}
+
+#leftBox {
+  margin-right:10px;
+  background: #eff9fb;
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  box-ordinal-group: 1;
+  -moz-box-shadow: 4px 3px 6px #8a8a8a;
+  -webkit-box-shadow: 4px 3px 6px #8a8a8a;
+  box-shadow: 4px 3px 6px #8a8a8a;
+  li {
+    list-style:none;
+    margin-right:10px;
+    a {
+      color:#444;
+      font-weight:bold;
+      min-width:150px;
+      display:inline-block;
+      text-decoration:none;
+      padding:6px 0 10px 8px;
+    }
+    a:hover {
+      border-radius:5px;
+      background-color:#e0e0e0;
+    }
+  }
+}
+
+ul#toolbar {
+  margin-left:-40px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  list-style:none;
+  li {
+    padding-left:5px;
+  }
+}
+
+#jquery-ui-sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 1280;
+
+  li {
+    float: left;
+    margin: 1px;
+    padding: 30px 0px 0px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 640px;
+    text-align: center;
+    background: none;
+  }
+}
+

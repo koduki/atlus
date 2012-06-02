@@ -1,47 +1,22 @@
-<script>
-<!--
-    $(function() {
-        $( '#jquery-ui-sortable' ) . sortable();
-        $( '#jquery-ui-sortable' ) . disableSelection();
-    });
-// -->
-</script>
-
-<style>
-<!--
-    #jquery-ui-sortable {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        width: 1280;
-     }
-     #jquery-ui-sortable li {
-        float: left;
-        margin: 1px;
-        padding: 30px 0px 0px 0px;
-        font-size: 15px;
-        font-weight: bold;
-        width: 640px;
-        text-align: center;
-        background: none;
-     }
--->
-</style>
-
-<div style="display: -webkit-box;　">
-  <div style="width:300px">
+<div id="box">
+  <nav id="leftBox">
     <ul>
     <% @dashboards.each do |dashboard| %>
       <li>
-        <span><%= link_to dashboard.name, dashboard %></span>
+        <%= link_to dashboard.name, dashboard %>
+        <!--
         <span><%= link_to 'Edit', edit_dashboard_path(dashboard) %></span>
         <span><%= link_to 'Destroy', dashboard, confirm: 'Are you sure?', method: :delete %></span>
+        -->
       </li>
     <% end %>
     </ul>
-  <div>
-
-  <div>
+  </nav>
+  <div id="main">
+    <ul id="toolbar">
+      <li><%= link_to 'Edit', edit_dashboard_path(@dashboard) %></li>
+      <li><%= link_to 'Destroy', @dashboard, confirm: 'Are you sure?', method: :delete %></li>
+    </ul>
     <p id="notice"><%= notice %></p>
     <h1><%= @dashboard.name %></h1>
 
@@ -53,6 +28,5 @@
         <% end %>
     </ul>
     <div style="clear: both;"></div>
-    <%= link_to 'Edit', edit_dashboard_path(@dashboard) %>
   </div>
 </div>
