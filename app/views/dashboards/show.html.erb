@@ -1,10 +1,45 @@
+<script>
+<!--
+    $(function() {
+        $( '#jquery-ui-sortable' ) . sortable();
+        $( '#jquery-ui-sortable' ) . disableSelection();
+    });
+// -->
+</script>
+
+<style>
+<!--
+    #jquery-ui-sortable {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 1280;
+     }
+     #jquery-ui-sortable li {
+        float: left;
+        margin: 1px;
+        padding: 30px 0px 0px 0px;
+        font-size: 15px;
+        font-weight: bold;
+        width: 640px;
+        text-align: center;
+        background: none;
+     }
+-->
+</style>
+
+
 <p id="notice"><%= notice %></p>
+<h1><%= @dashboard.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @dashboard.name %>
-</p>
-
+<ul id="jquery-ui-sortable">
+    <% @dashboard.snipets.each do |snipet| %>
+    <li class="ui-state-default">
+        <div class="item">/snipets/<%= snipet._id %></div>
+    </li>
+    <% end %>
+</ul>
+<div style="clear: both;"></div>
 
 <%= link_to 'Edit', edit_dashboard_path(@dashboard) %> |
 <%= link_to 'Back', dashboards_path %>
