@@ -14,6 +14,18 @@ class SnipetsController < ApplicationController
   # GET /snipets/1.json
   def show
     @snipet = Snipet.find(params[:id])
+    begin
+      @data = eval(@snipet.query)
+      begin
+        @table_recods = @data.map{|r| r.map{|x| "<td>#{x}</td>" }.join() }.map{|r| "<tr>#{r}</tr>"}.join
+      rescue
+        @table_records = ""
+        flash[:notice] = "Format Error."
+      end 
+    rescue SyntaxError
+      @data = []
+      flash[:notice] = "Syntax Error."
+    end 
 
     respond_to do |format|
       format.html # show.html.erb
