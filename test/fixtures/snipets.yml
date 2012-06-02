@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  query: MyText
+  chartType: 
+  isTableVisible: false
+  isChartVisible: false
+
+two:
+  name: 
+  query: MyText
+  chartType: 
+  isTableVisible: false
+  isChartVisible: false

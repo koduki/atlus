@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  host: MyString
+  user: MyString
+  method: MyString
+  path: MyString
+  code: 1
+  size: 1
+  referer: MyString
+  agent: MyString
+  time: 2012-06-02 16:51:32
+
+two:
+  host: MyString
+  user: MyString
+  method: MyString
+  path: MyString
+  code: 1
+  size: 1
+  referer: MyString
+  agent: MyString
+  time: 2012-06-02 16:51:32

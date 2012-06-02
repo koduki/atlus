@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @snipet.name %>
+</p>
+
+<p>
+  <b>Query:</b>
+  <%= @snipet.query %>
+</p>
+
+<p>
+  <b>Charttype:</b>
+  <%= @snipet.chartType %>
+</p>
+
+<p>
+  <b>Istablevisible:</b>
+  <%= @snipet.isTableVisible %>
+</p>
+
+<p>
+  <b>Ischartvisible:</b>
+  <%= @snipet.isChartVisible %>
+</p>
+
+
+<%= link_to 'Edit', edit_snipet_path(@snipet) %> |
+<%= link_to 'Back', snipets_path %>
