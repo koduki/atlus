@@ -28,18 +28,31 @@
 -->
 </style>
 
-
-<p id="notice"><%= notice %></p>
-<h1><%= @dashboard.name %></h1>
-
-<ul id="jquery-ui-sortable">
-    <% @dashboard.snipets.each do |snipet| %>
-    <li class="ui-state-default">
-        <div class="item">/snipets/<%= snipet._id %></div>
-    </li>
+<div style="display: -webkit-box;　">
+  <div style="width:300px">
+    <ul>
+    <% @dashboards.each do |dashboard| %>
+      <li>
+        <span><%= link_to dashboard.name, dashboard %></span>
+        <span><%= link_to 'Edit', edit_dashboard_path(dashboard) %></span>
+        <span><%= link_to 'Destroy', dashboard, confirm: 'Are you sure?', method: :delete %></span>
+      </li>
     <% end %>
-</ul>
-<div style="clear: both;"></div>
+    </ul>
+  <div>
 
-<%= link_to 'Edit', edit_dashboard_path(@dashboard) %> |
-<%= link_to 'Back', dashboards_path %>
+  <div>
+    <p id="notice"><%= notice %></p>
+    <h1><%= @dashboard.name %></h1>
+
+    <ul id="jquery-ui-sortable">
+        <% @dashboard.snipets.each do |snipet| %>
+        <li class="ui-state-default">
+          <div class="item">/snipets/<%= snipet._id %></div>
+        </li>
+        <% end %>
+    </ul>
+    <div style="clear: both;"></div>
+    <%= link_to 'Edit', edit_dashboard_path(@dashboard) %>
+  </div>
+</div>

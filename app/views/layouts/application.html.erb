@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <header>
+    <h1>Atlus</h1>
+    <ul>
+      <li><%= link_to("Home", :dashboards) %></li>
+      <li><%= link_to("Snipet", :snipets) %></li>
+    </ul>
+  </header>
 <%= yield %>
 
 </body>
