@@ -15,6 +15,7 @@ window.Chart.load = (snipet) ->
 
   switch type
     when "pi" then pi(target, container)
+    when "line" then line(target, container)
     when "horizonBar" then horizonBar(target, container)
 
 horizonBar = (target, container) ->
@@ -94,3 +95,35 @@ pi = (target, container) ->
       backgroundColor: "#D2E8FF"
   )
 
+line = (target, container) ->
+  items = target.find("tr").map((i, x) ->
+    $(x).find("td").map (i, x) ->
+      $(x).text()
+  ).map((i, x) ->
+    index: i
+    label: x[0]
+    data: parseInt(x[1])
+  )
+
+  data = items.map((i, x) ->
+    [ [ x.index, x.data ] ]
+  ).toArray()
+
+  labels = items.map((i, x) ->
+    [ [ x.index, x.label ] ]
+  ).toArray()
+
+  graph = Flotr.draw(container, [ data ],
+    xaxis:
+      minorTickFreq: 4
+      showLabels: true
+      min: 0
+      ticks: labels
+
+    yaxis:
+      minorTickFreq: 4
+      min: 0
+
+    grid:
+      minorVerticalLines: true
+  )
