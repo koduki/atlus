@@ -3,11 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Query</th>
-    <th>Charttype</th>
-    <th>Istablevisible</th>
-    <th>Ischartvisible</th>
-    <th></th>
+    <th>ChartType</th>
+    <th>Table Visible</th>
+    <th>Chart Visible</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,12 +13,10 @@
 <% @snipets.each do |snipet| %>
   <tr>
     <td><%= snipet.name %></td>
-    <td><%= snipet.query %></td>
     <td><%= snipet.chartType %></td>
     <td><%= snipet.isTableVisible %></td>
     <td><%= snipet.isChartVisible %></td>
     <td><%= link_to 'Show', snipet %></td>
-    <td><%= link_to 'Edit', edit_snipet_path(snipet) %></td>
     <td><%= link_to 'Destroy', snipet, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
