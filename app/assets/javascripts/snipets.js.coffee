@@ -4,6 +4,7 @@
 window.Chart = {}
 
 $(() -> 
+  initAceEditor()
   $(".snipet").map((i, x) -> window.Chart.load($(x)))
   $(".hidden").map((i, x) -> $(x).css("display", "none"))
 )
@@ -127,3 +128,20 @@ line = (target, container) ->
     grid:
       minorVerticalLines: true
   )
+
+initAceEditor = ->
+  raw_editor = $("#snipet_query").eq(0)
+  raw_editor.css "display", "none"
+
+  $("#query").css("width", raw_editor.width()) + "px"
+  $("#query").css("height", raw_editor.height()) + "px"
+  $("#query").text raw_editor.text()
+
+  editor = ace.edit("query")
+  editor.setTheme "ace/theme/twilight"
+  RubyMode = require("ace/mode/ruby").Mode
+  editor.getSession().setMode new RubyMode()
+
+  submit = $("form.edit_snipet input[type='submit']").eq(0)
+  submit.click ->
+    raw_editor.text editor.getSession().getValue()

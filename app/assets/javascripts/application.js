@@ -14,4 +14,6 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require flotr2
+//= require ace/ace
+//= require ace/mode-ruby.js
 //= require_tree .
