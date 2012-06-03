@@ -4,7 +4,7 @@
 window.Chart = {}
 
 $(() -> 
-  initAceEditor()
+        #initAceEditor()
   $(".snipet").map((i, x) -> window.Chart.load($(x)))
   $(".hidden").map((i, x) -> $(x).css("display", "none"))
 )
