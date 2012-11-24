@@ -16,13 +16,15 @@
     <p id="notice"><%= notice %></p>
     <h1><%= @dashboard.name %></h1>
 
-    <ul id="jquery-ui-sortable">
-        <% @dashboard.snipets.each do |snipet| %>
-        <li class="ui-state-default">
-          <div class="item">/snipets/<%= snipet._id %></div>
-        </li>
-        <% end %>
-    </ul>
+    <div id="snipets">
+      <ul id="jquery-ui-sortable">
+          <% @dashboard.snipets.each do |snipet| %>
+          <li class="snipet ui-state-default">
+            <div class="item">/snipets/<%= snipet._id %></div>
+          </li>
+          <% end %>
+      </ul>
+    </div>
     <div style="clear: both;"></div>
   </div>
 </div>
