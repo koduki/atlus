@@ -7,15 +7,14 @@ $(() ->
   $(".snipet").map((i, x) -> window.Chart.load($(x)))
   $(".hidden").map((i, x) -> $(x).css("display", "none"))
 )
-
 window.Chart.load = (snipet) ->
   target = snipet.find("table").first()
   container = snipet.find(".container")[0]
   type = snipet.find(".chartType").val()
-
+  scale = snipet.find(".scale").val()
   switch type
     when "pi" then pi(target, container)
-    when "line" then line(target, container)
+    when "line" then line(target, container, scale)
     when "horizonBar" then horizonBar(target, container)
 
 horizonBar = (target, container) ->
@@ -94,8 +93,7 @@ pi = (target, container) ->
       position: "se"
       backgroundColor: "#D2E8FF"
   )
-
-line = (target, container) ->
+line = (target, container, scale) ->
   items = target.find("tr").map((i, x) ->
     $(x).find("td").map (i, x) ->
       $(x).text()
@@ -110,7 +108,10 @@ line = (target, container) ->
   ).toArray()
 
   labels = items.map((i, x) ->
-    [ [ x.index, x.label ] ]
+    if (i % scale == 0)
+      [ [ x.index, x.label ] ]
+    else
+      [ [ x.index, "" ] ]
   ).toArray()
 
   graph = Flotr.draw(container, [ data ],
@@ -124,7 +125,6 @@ line = (target, container) ->
     yaxis:
       minorTickFreq: 4
       min: 0
-      base: Math.E
 
     grid:
       minorVerticalLines: true

@@ -7,4 +7,5 @@ class Snipet
   field :height, :type => Integer, :default => 384
   field :isTableVisible, :type => Boolean
   field :isChartVisible, :type => Boolean
+  field :scale, :type => Integer, :default => 1
 end
