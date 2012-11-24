@@ -4,7 +4,6 @@
 window.Chart = {}
 
 $(() -> 
-        #initAceEditor()
   $(".snipet").map((i, x) -> window.Chart.load($(x)))
   $(".hidden").map((i, x) -> $(x).css("display", "none"))
 )
@@ -22,7 +21,7 @@ window.Chart.load = (snipet) ->
 horizonBar = (target, container) ->
   takeData = (xs) ->
     (xs.slice(1).map((i, x) ->
-      parseInt x
+      parseFloat x
     )).toArray()
  
   items = $(target.find("tr").get().reverse()).map((i, x) ->
@@ -70,7 +69,7 @@ pi = (target, container) ->
   data = target.find("tr").map((i, x) ->
     td = $(x).find("td")
     label: td.eq(0).text()
-    data: [ [ 0, parseInt(td.eq(1).text()) ] ]
+    data: [ [ 0, parseFloat(td.eq(1).text()) ] ]
   )
   graph = Flotr.draw(container, data,
     HtmlText: false
@@ -103,7 +102,7 @@ line = (target, container) ->
   ).map((i, x) ->
     index: i
     label: x[0]
-    data: parseInt(x[1])
+    data: parseFloat(x[1])
   )
 
   data = items.map((i, x) ->
@@ -115,6 +114,7 @@ line = (target, container) ->
   ).toArray()
 
   graph = Flotr.draw(container, [ data ],
+    parseFloat: true
     xaxis:
       minorTickFreq: 4
       showLabels: true
@@ -124,6 +124,7 @@ line = (target, container) ->
     yaxis:
       minorTickFreq: 4
       min: 0
+      base: Math.E
 
     grid:
       minorVerticalLines: true
