@@ -12,11 +12,13 @@
     <ul id="toolbar">
       <li><%= link_to 'Edit', edit_dashboard_path(@dashboard) %></li>
       <li><%= link_to 'Destroy', @dashboard, confirm: 'Are you sure?', method: :delete %></li>
+      <li><a href="#" onclick="updateOrder()">Save Order</a></li>
     </ul>
     <p id="notice"><%= notice %></p>
     <h1><%= @dashboard.name %></h1>
 
     <div id="snipets">
+      <input type="hidden" id="snipets_orders" value="<%= @dashboard.orders %>" />
       <ul id="jquery-ui-sortable">
           <% @dashboard.snipets.each do |snipet| %>
           <li class="snipet ui-state-default">

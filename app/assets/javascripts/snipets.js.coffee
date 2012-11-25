@@ -6,6 +6,8 @@ window.Chart = {}
 $(() -> 
   $(".snipet").map((i, x) -> window.Chart.load($(x)))
   $(".hidden").map((i, x) -> $(x).css("display", "none"))
+
+  initAceEditor()
 )
 window.Chart.load = (snipet) ->
   target = snipet.find("table").first()
