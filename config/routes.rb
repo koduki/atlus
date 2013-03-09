@@ -1,4 +1,6 @@
 Atlus::Application.routes.draw do
+  match "/snipets/update_cache" => "snipets#update_cache"
+
   resources :dashboards
 
   resources :snipets

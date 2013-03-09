@@ -15,7 +15,8 @@ class SnipetsController < ApplicationController
   def show
     @snipet = Snipet.find(params[:id])
     begin
-      @data = eval(@snipet.query)
+      @data = DataManager.instance.execute(@snipet.query)
+      p @data
       begin
         @table_recods = @data.map{|r| r.map{|x| "<td>#{x}</td>" }.join() }.map{|r| "<tr>#{r}</tr>"}.join
       rescue
@@ -32,7 +33,6 @@ class SnipetsController < ApplicationController
       @data = []
       flash[:notice] = "Syntax Error."
     end 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @snipet }
@@ -97,5 +97,20 @@ class SnipetsController < ApplicationController
       format.html { redirect_to snipets_url }
       format.json { head :no_content }
     end
+  end
+
+  def update_cache
+    results = {}
+    Snipet.find(:all).map do |snipet|
+      logger.info("EVENT_NAME:UPDATE_CACHE\tTYPE:START\tQUERY_NAME:#{snipet.name}")
+      DataManager.instance.execute(snipet.query)
+      logger.info("EVENT_NAME:UPDATE_CACHE\tTYPE:END\tQUERY_NAME:#{snipet.name}")
+      results[snipet.name] = "success"
+    end
+
+    respond_to do |format|
+      format.json { render json:results }
+    end
+ 
   end
 end

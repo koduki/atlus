@@ -1,6 +1,6 @@
 development:
   host: localhost
-  database: atlus_development
+  database: test
 
 test:
   host: localhost
